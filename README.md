@@ -2,7 +2,7 @@
 
 Лёгкий веб-дашборд для мониторинга сетевого трафика через **vnStat**
 
-Скрипт подключается к удалённым серверам по SSH, собирает данные vnStat в формате JSON и отображает их в удобном современном интерфейсе с графиками. Поддерживает несколько серверов, авторизацию и автоматическое обновление данных
+Скрипт подключается к хостам по SSH, собирает данные vnStat в формате JSON и отображает их в удобном интерфейсе с графиками. Поддерживает несколько серверов, авторизацию и автоматическое обновление данных
 
 ---
 
@@ -14,29 +14,41 @@
 * 🔐 Простая авторизация
 * 🖥 Поддержка нескольких серверов
 
----
+--- 
 
 ## 🛠 Требования
 
 * Python 3.9+
-* Установленный на хостах vnStat 
-* Доступ по SSH
+* 64 Mb ОЗУ
+* 100 Mb Хранилища
 
 ---
 
-## 📦 Установка
+## 📦 Установка дашборда
 
 ```bash
-apt install vnstat
+apt update
+apt upgrade -y
 curl -L https://github.com/md3xf4ck/vnStat-web-dashboard/releases/latest/download/vnStat-web-dashboard.zip -o vnstat-web-dashboard.zip
 unzip vnstat-web-dashboard.zip
 cd vnStat-web-dashboard
+apt install python3.12-venv
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+```
+
+## Установка зависимостей на хосте
+
+```bash
+apt update
+apt upgrade -y
+apt install vnstat
 ```
 
 ---
 
-## ⚙️ Настройка
+## ⚙️ Настройка 
 
 Отредактируйте `config.py`:
 
@@ -126,7 +138,6 @@ http://localhost:3232
 
 * Flask
 * paramiko
-* Chart.js (через CDN)
 
 ---
 
