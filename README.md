@@ -28,8 +28,9 @@
 
 ```bash
 apt install vnstat
-git clone https://github.com/md3xf4ck/vnstat-web-dashboard.git
-cd vnstat-web-dashboard
+curl -L https://github.com/md3xf4ck/vnStat-web-dashboard/releases/latest/download/vnStat-web-dashboard.zip -o vnstat-web-dashboard.zip
+unzip vnstat-web-dashboard.zip
+cd vnStat-web-dashboard
 pip install -r requirements.txt
 ```
 
